@@ -1,0 +1,101 @@
+{% load dajaxice_templatetags %}
+<!DOCTYPE html>
+<html lang='es'>
+<head>
+  <meta charset='utf-8'>
+  <title>jdpasrts mx</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+
+  <!-- Estilos -->
+  <link rel='stylesheet' href='{{STATIC_URL}}css/bootstrap.css'/>
+  <link rel='stylesheet' href='{{STATIC_URL}}css/base.css'/>
+  <link href='http://fonts.googleapis.com/css?family=Port+Lligat+Slab' rel='stylesheet' type='text/css'>
+  {% block style_css %}{% endblock %}
+
+  <!-- <link rel='shortcut icon' href='{{STATIC_URL}}img/logo.png'> -->
+
+  <script src="{{STATIC_URL}}js/jquery.min.js" ></script>
+  <script src='{{STATIC_URL}}js/bootstrap.js' ></script>
+  <script type="text/javascript">
+  $(document).ready(function(){
+    $('#clave').focus();
+    $('#clave').live('keydown', function(e) { 
+      var keyCode = e.keyCode || e.which; 
+      if (keyCode == 13)
+      {
+        window.location.href = '/catalogo/articulos/'+ $('#clave').val()+'/';
+      } 
+    });
+
+    $("#buscar_clave").on("click",function(){
+       window.location.href = '/catalogo/articulos/'+ $('#clave').val()+'/';
+    });
+  });
+
+  
+  </script>
+  
+  {% block js_code %}
+
+  {% endblock %}
+  
+  
+
+  {% dajaxice_js_import %}
+</head>
+<body>
+
+  <header>
+    <div id="navbar-example" class="navbar navbar-static">
+              <div class="navbar-inner" style="background-image: linear-gradient(to bottom, #FFFFFF, #FFFFFF)">
+                <div class="container" style="width: auto;">
+                  <a class="brand" href="/">JD Parts MX</a>
+                  <ul class="nav" role="navigation">
+                    <li class="dropdown">
+                      <a id="drop1" href="#" role="button" class="dropdown-toggle" data-toggle="dropdown">Catalogos <b class="caret"></b></a>
+                      <ul class="dropdown-menu" role="menu" aria-labelledby="drop1">
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="/catalogo/articulos/">JD Parts MX</a></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="http://jdpc.deere.com/jdpc/servlet/com.deere.u90490.partscatalog.view.servlets.HomePageServlet_Alt" target="_blank">John Deere</a></li>
+                      </ul>
+                    </li>
+                    <li class="dropdown">
+                      <a href="#" id="drop2" role="button" class="dropdown-toggle" data-toggle="dropdown">Contacto <b class="caret"></b></a>
+                      <ul class="dropdown-menu" role="menu" aria-labelledby="drop2">
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Quienes somos</a></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Ubicacion</a></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Informacion</a></li>
+                        <li role="presentation" class="divider"></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Empresa</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                  <ul class="nav">
+                    <input class='span' id='clave' style="margin-top: 0.5em;" type='text' placeholder='Clave de articulo...' />
+                    <a class="btn" id='buscar_clave' style="margin-top: -0.5em;"><i class='icon-search'></i> </a>
+                  </ul>
+                  <ul class="nav pull-right">
+                    <li id="fat-menu" class="dropdown">
+                      <a href="#" id="drop3" role="button" class="dropdown-toggle" data-toggle="dropdown">Jesus Manuel <b class="caret"></b></a>
+                      <ul class="dropdown-menu" role="menu" aria-labelledby="drop3">
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Configuracion</a></li>
+                        <li role="presentation" class="divider"></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Cerrar Sesion</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div> 
+    
+  </header>
+  
+  <section class='content' style='clear:both;'>
+    <div class="pagecontent">
+      {% block content %}{% endblock %}
+    </div>
+  </section>
+  <footer>      
+    jdparts.com.mx &copy; 2013
+  </footer>
+</body>
+</html>
