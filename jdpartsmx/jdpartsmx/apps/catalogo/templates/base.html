@@ -9,7 +9,7 @@
   <!-- Estilos -->
   <link rel='stylesheet' href='{{STATIC_URL}}css/bootstrap.css'/>
   <link rel='stylesheet' href='{{STATIC_URL}}css/base.css'/>
-  <link href='http://fonts.googleapis.com/css?family=Port+Lligat+Slab' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Bilbo+Swash+Caps|Oswald|Yanone+Kaffeesatz' rel='stylesheet' type='text/css'>
   {% block style_css %}{% endblock %}
 
   <!-- <link rel='shortcut icon' href='{{STATIC_URL}}img/logo.png'> -->
@@ -70,7 +70,7 @@
                     </li>
                   </ul>
                   <ul class="nav">
-                    <input class='span' id='clave' style="margin-top: 0.5em;" type='text' placeholder='Clave de articulo...' />
+                    <input class='span input-small' id='clave' style="margin-top: 0.5em;" type='text' placeholder='Clave...' />
                     <a class="btn" id='buscar_clave' style="margin-top: -0.5em;"><i class='icon-search'></i> </a>
                   </ul>
                   <ul class="nav pull-right">
@@ -94,8 +94,35 @@
       {% block content %}{% endblock %}
     </div>
   </section>
-  <footer>      
-    jdparts.com.mx &copy; 2013
+  <footer style="background-color: rgb(157, 168, 157);"> 
+    <br>
+    <div class="row-fluid text-left">
+      <div class="span3 offset1">
+        <strong> QUIENES SOMOS</strong>
+          <br>
+          <br>
+          <p >
+            Somos una empresa de clase mundial dedicada a la venta y compra de refacciones y partes para todo tipo de equipo y maquinaria John Deere® agrícola e industrial.
+          </p>
+      </div>
+      <div class="span4">
+        <strong>CONTACTO </strong>
+        <br>
+        <br>
+        <address>
+          <abbr title="Telefono">Tel:</abbr> (123) 456-7890<br>
+          <a href="mailto:#">ventas@jdparts.com.mx</a>
+        </address>
+      </div>
+      <div class="span3">
+        <p class="text-right">
+          <img src="{{STATIC_URL}}img/jdpartsmx.png" style="height: 60px; width: 145px;">
+          <br>
+          jdparts.com.mx &copy; 2013
+        </p>
+      </div>
+    </div>
+    
   </footer>
 </body>
 </html>
